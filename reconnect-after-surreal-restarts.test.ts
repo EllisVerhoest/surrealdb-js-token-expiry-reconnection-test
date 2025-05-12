@@ -42,7 +42,9 @@ it('database user reconnects after restart', async () => {
 
     await stopSurreal();
     console.log('\\/ \\/ \\/ Surreal is DOWN!');
-    await new Promise(res => setTimeout(res, 1000)); // <-- let token expire
+
+    await new Promise(res => setTimeout(res, 2000)); // <-- let token expire
+
     await startSurreal();
     await waitForSurreal();
     console.log('/\\ /\\ /\\ Surreal is UP!');
