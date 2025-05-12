@@ -50,9 +50,11 @@ export async function waitForSurreal() {
     let tries = 10;
     while (true) {
         try {
-            let response = await fetch(`http://${bind}/health`);
+            let response = await fetch(`http://${bind}/version`);
 
             if (response.status === 200) {
+                console.log(`running surrealdb version`, await response.text());
+
                 return true;
             }
         } catch (e) {
