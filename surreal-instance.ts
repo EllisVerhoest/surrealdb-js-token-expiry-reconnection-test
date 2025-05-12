@@ -69,7 +69,7 @@ export async function waitForSurreal() {
     }
 }
 
-export async function startSurreal(binPath?: string) {
+export async function startSurreal(binPath: string | undefined = process.env.SURREAL_BIN_PATH) {
     binPath ??= await checkAndGetSurrealBinary();
     surrealdbProcess = Bun.spawn(`${binPath} start -A -b ${bind} -u root -p root rocksdb:testdatabase.db`.split(' '));
 }

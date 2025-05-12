@@ -3,7 +3,7 @@ import {deletePersistenceFile, killSurreal, startSurreal, waitForSurreal} from '
 
 
 beforeAll(async () => {
-    await startSurreal(process.env.SURREAL_BIN_PATH);
+    await startSurreal();
     await waitForSurreal();
 });
 
